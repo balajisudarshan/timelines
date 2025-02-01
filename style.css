@@ -162,3 +162,107 @@ body{
         left: -15px;
     }
 }
+
+/* timeline2 */
+.timeline-2 {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    
+    margin:10% auto;
+}
+
+/* Timeline vertical line */
+.timeline-2::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    background: #ffef51;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2.5px;
+}
+
+/* Timeline container */
+.time-line-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cont {
+    position: relative;
+    width: 45%;
+    padding: 20px;
+    border-radius: 8px;
+    background: linear-gradient(139deg, rgba(114,38,255,1) 0%, rgba(247,121,179,1) 100%);
+    color: white;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.main-container {
+    left: 0;
+    text-align: right;
+}
+
+.container-right {
+    left: 55%;
+    text-align: left;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    color: orange;
+    margin-bottom: 10px;
+}
+
+.content {
+    font-size: 16px;
+    opacity: 0; /* Start hidden */
+    max-height: 0; /* Collapsed */
+    overflow: hidden; /* Hide content */
+    transition: opacity 0.4s ease-in-out, max-height 0.4s ease-in-out;
+}
+.cont:hover .content {
+    opacity: 1; /* Fade in */
+    max-height: 500px; /* Expand smoothly */
+}
+
+/* Circular markers */
+.circle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    background: #ffef51;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.main-container .circle {
+    right: -30px;
+}
+
+.container-right .circle {
+    left: -30px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .timeline-2::before {
+        left: 20px;
+    }
+    .main-container, .container-right {
+        width: 100%;
+        left: 0;
+        text-align: left;
+        padding-left: 50px;
+    }
+    .main-container .circle, .container-right .circle {
+        left: 10px;
+    }
+}
